@@ -118,3 +118,47 @@ export const getDomains = (): Promise<Domain[] | undefined> =>
 
 export const setDomains = (domains: Domain[]): Promise<void> =>
   browser.storage.local.set({ domains })
+
+// Chrome extension policy for CLOUD_SYNC
+export const getCloudSyncPolicy = async (): Promise<boolean> => {
+  try {
+    // Try to read from managed storage (policy)
+    const result = await browser.storage.managed.get('CLOUD_SYNC')
+    return Boolean(result.CLOUD_SYNC)
+  } catch (error) {
+    // If managed storage is not available (e.g., in Firefox), default to false
+    console.debug('Managed storage not available, defaulting CLOUD_SYNC to false:', error)
+    return false
+  }
+}
+
+// Chrome extension policies for authentication and cloud configuration
+export const getTagPolicy = async (): Promise<string> => {
+  try {
+    const result = await browser.storage.managed.get('TAG')
+    return (result.TAG as string) || ''
+  } catch (error) {
+    console.debug('Managed storage not available, defaulting TAG to empty string:', error)
+    return ''
+  }
+}
+
+export const getSubdomainPolicy = async (): Promise<string> => {
+  try {
+    const result = await browser.storage.managed.get('SUBDOMAIN')
+    return (result.SUBDOMAIN as string) || ''
+  } catch (error) {
+    console.debug('Managed storage not available, defaulting SUBDOMAIN to empty string:', error)
+    return ''
+  }
+}
+
+export const getRegionPolicy = async (): Promise<string> => {
+  try {
+    const result = await browser.storage.managed.get('REGION')
+    return (result.REGION as string) || ''
+  } catch (error) {
+    console.debug('Managed storage not available, defaulting REGION to empty string:', error)
+    return ''
+  }
+}

@@ -13,6 +13,10 @@ const config = {
     alarmName: 'blockedDomains',
     intervalInSeconds: 1800,
   },
+  cloudSync: {
+    alarmName: 'cloudSync',
+    intervalInSeconds: 86400, // 24 hours = 24 * 60 * 60 seconds
+  },
 }
 
 export default config

@@ -6,6 +6,7 @@ import {
   tabActivatedListener,
 } from './heartbeat'
 import { blockedDomainsAlarmListener } from './blocker'
+import { cloudSyncAlarmListener } from './cloud-sync'
 import { getClient, detectHostname } from './client'
 import {
   getConsentStatus,
@@ -15,6 +16,7 @@ import {
   setEnabled,
   setHostname,
   waitForEnabled,
+  getCloudSyncPolicy,
 } from '../storage'
 
 async function getIsConsentRequired() {
@@ -68,8 +70,13 @@ browser.alarms.create(config.heartbeat.alarmName, {
 browser.alarms.create(config.blockedDomains.alarmName, {
   periodInMinutes: Math.floor(config.blockedDomains.intervalInSeconds / 60)
 })
+browser.alarms.create(config.cloudSync.alarmName, {
+  periodInMinutes: Math.floor(config.cloudSync.intervalInSeconds / 60)
+})
+
 browser.alarms.onAlarm.addListener(heartbeatAlarmListener(client))
 browser.alarms.onAlarm.addListener(blockedDomainsAlarmListener())
+browser.alarms.onAlarm.addListener(cloudSyncAlarmListener())
 browser.tabs.onActivated.addListener(tabActivatedListener(client))
 
 console.debug('Setting base url')

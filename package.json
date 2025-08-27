@@ -10,7 +10,7 @@
         "url": "git+https://github.com/ActivityWatch/aw-watcher-web.git"
     },
     "dependencies": {
-        "aw-client": "^0.4.1",
+        "aw-client": "github:haroon7v/aw-client-js#feature/44709_browser_tracking_via_cloud",
         "deep-equal": "^2.2.3",
         "p-retry": "^6.2.1",
         "webextension-polyfill": "^0.12.0"
