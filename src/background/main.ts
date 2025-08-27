@@ -15,8 +15,7 @@ import {
   setConsentStatus,
   setEnabled,
   setHostname,
-  waitForEnabled,
-  getCloudSyncPolicy,
+  waitForEnabled
 } from '../storage'
 
 async function getIsConsentRequired() {
@@ -41,7 +40,7 @@ async function autodetectHostname() {
 console.info('Starting...')
 
 console.debug('Creating client')
-const client = getClient()
+const client = await getClient()
 
 browser.runtime.onInstalled.addListener(async () => {
   const { consent } = await getConsentStatus()
@@ -76,7 +75,7 @@ browser.alarms.create(config.cloudSync.alarmName, {
 
 browser.alarms.onAlarm.addListener(heartbeatAlarmListener(client))
 browser.alarms.onAlarm.addListener(blockedDomainsAlarmListener())
-browser.alarms.onAlarm.addListener(cloudSyncAlarmListener())
+browser.alarms.onAlarm.addListener(cloudSyncAlarmListener(client))
 browser.tabs.onActivated.addListener(tabActivatedListener(client))
 
 console.debug('Setting base url')

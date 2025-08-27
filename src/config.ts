@@ -11,11 +11,11 @@ const config = {
   },
   blockedDomains: {
     alarmName: 'blockedDomains',
-    intervalInSeconds: 1800,
+    intervalInSeconds: 1800, // every 30 minutes
   },
   cloudSync: {
     alarmName: 'cloudSync',
-    intervalInSeconds: 86400, // 24 hours = 24 * 60 * 60 seconds
+    intervalInSeconds: 86400, // every 24 hours
   },
 }
 

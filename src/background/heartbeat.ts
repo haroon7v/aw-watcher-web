@@ -1,5 +1,5 @@
 import browser from 'webextension-polyfill'
-import { getActiveWindowTab, getTab, getTabs } from './helpers'
+import { getActiveWindowTab, getTab, getTabs, getUserEmail } from './helpers'
 import config from '../config'
 import { AWClient, IEvent } from 'aw-client'
 import { getBucketId, sendHeartbeat } from './client'
@@ -10,6 +10,7 @@ async function heartbeat(
   client: AWClient,
   tab: browser.Tabs.Tab | undefined,
   tabCount: number,
+  email: string | undefined
 ) {
   const enabled = await getEnabled()
   if (!enabled) {
@@ -44,6 +45,7 @@ async function heartbeat(
       new Date(now.getTime() - 1),
       previousData,
       config.heartbeat.intervalInSeconds + 20,
+      email
     )
   }
   console.debug('Sending heartbeat', data)
@@ -53,6 +55,7 @@ async function heartbeat(
     now,
     data,
     config.heartbeat.intervalInSeconds + 20,
+    email
   )
   await setHeartbeatData(data)
 }
@@ -60,8 +63,9 @@ async function heartbeat(
 export const sendInitialHeartbeat = async (client: AWClient) => {
   const activeWindowTab = await getActiveWindowTab()
   const tabs = await getTabs()
+  const email = await getUserEmail()
   console.debug('Sending initial heartbeat', activeWindowTab)
-  await heartbeat(client, activeWindowTab, tabs.length)
+  await heartbeat(client, activeWindowTab, tabs.length, email)
 }
 
 export const heartbeatAlarmListener =
@@ -70,8 +74,9 @@ export const heartbeatAlarmListener =
     const activeWindowTab = await getActiveWindowTab()
     if (!activeWindowTab) return
     const tabs = await getTabs()
+    const email = await getUserEmail()
     console.debug('Sending heartbeat for alarm', activeWindowTab)
-    await heartbeat(client, activeWindowTab, tabs.length)
+    await heartbeat(client, activeWindowTab, tabs.length, email)
   }
 
 export const tabActivatedListener =
@@ -79,6 +84,7 @@ export const tabActivatedListener =
   async (activeInfo: browser.Tabs.OnActivatedActiveInfoType) => {
     const tab = await getTab(activeInfo.tabId)
     const tabs = await getTabs()
+    const email = await getUserEmail()
     console.debug('Sending heartbeat for tab activation', tab)
-    await heartbeat(client, tab, tabs.length)
+    await heartbeat(client, tab, tabs.length, email)
   }

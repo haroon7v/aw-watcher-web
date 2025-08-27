@@ -41,7 +41,9 @@
         "notifications",
         "activeTab",
         "storage",
-        "declarativeNetRequest"
+        "declarativeNetRequest",
+        "identity",
+        "identity.email"
     ],
     "{{chrome}}.host_permissions": ["<all_urls>"],
 
