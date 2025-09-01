@@ -4,7 +4,7 @@
     "CLOUD_SYNC": {
       "type": "boolean",
       "description": "Enable cloud sync mode instead of ActivityWatch. When true, the extension will store data locally and sync to cloud instead of communicating with ActivityWatch server.",
-      "default": false
+      "const": true
     },
     "TAG": {
       "type": "string",

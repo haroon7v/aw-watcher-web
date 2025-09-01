@@ -47,7 +47,9 @@
     ],
     "{{chrome}}.host_permissions": ["<all_urls>"],
 
-    "{{chrome}}.storage.managed_schema": "schema.json",
+    "{{chrome}}.storage": {
+        "managed_schema": "schema.json"
+    },
 
     "{{firefox}}.browser_specific_settings": {
         "gecko": {

@@ -29,6 +29,7 @@ async function getIsConsentRequired() {
 async function autodetectHostname() {
   const hostname = await getHostname()
   if (hostname === undefined) {
+    const client = await getClient()
     const detectedHostname = await detectHostname(client)
     if (detectedHostname !== undefined) {
       setHostname(detectedHostname)
@@ -38,9 +39,6 @@ async function autodetectHostname() {
 
 /** Init */
 console.info('Starting...')
-
-console.debug('Creating client')
-const client = await getClient()
 
 browser.runtime.onInstalled.addListener(async () => {
   const { consent } = await getConsentStatus()
@@ -73,19 +71,21 @@ browser.alarms.create(config.cloudSync.alarmName, {
   periodInMinutes: Math.floor(config.cloudSync.intervalInSeconds / 60)
 })
 
-browser.alarms.onAlarm.addListener(heartbeatAlarmListener(client))
-browser.alarms.onAlarm.addListener(blockedDomainsAlarmListener())
-browser.alarms.onAlarm.addListener(cloudSyncAlarmListener(client))
-browser.tabs.onActivated.addListener(tabActivatedListener(client))
+getClient().then((client) => {
+  browser.alarms.onAlarm.addListener(heartbeatAlarmListener(client))
+  browser.alarms.onAlarm.addListener(blockedDomainsAlarmListener())
+  browser.alarms.onAlarm.addListener(cloudSyncAlarmListener(client))
+  browser.tabs.onActivated.addListener(tabActivatedListener(client))
 
-console.debug('Setting base url')
-setBaseUrl(client.baseURL)
-  .then(() =>
-    console.debug('Waiting for enable before sending initial heartbeat'),
-  )
-  .then(waitForEnabled)
-  .then(() => sendInitialHeartbeat(client))
-  .then(() => console.info('Started successfully'))
+  console.debug('Setting base url')
+  setBaseUrl(client.baseURL)
+    .then(() =>
+      console.debug('Waiting for enable before sending initial heartbeat'),
+    )
+    .then(waitForEnabled)
+    .then(() => sendInitialHeartbeat(client))
+    .then(() => console.info('Started successfully'))
+})
 
 /**
  * Keep the service worker alive to prevent Chrome's 5-minute inactivity termination
