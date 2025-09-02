@@ -162,3 +162,103 @@ export const getRegionPolicy = async (): Promise<string> => {
     return ''
   }
 }
+
+// Storage functions for asHeartbeats array
+type ASHeartbeat = {
+  timestamp: Date
+  duration: number // Duration in milliseconds
+  data: IEvent['data']
+  email?: string
+}
+
+// Internal storage type with string timestamp for serialization
+type ASHeartbeatStorage = {
+  timestamp: string
+  duration: number // Duration in milliseconds
+  data: IEvent['data']
+  email?: string
+}
+
+// Helper functions to convert between storage and working formats
+const toStorageFormat = (heartbeat: ASHeartbeat): ASHeartbeatStorage => ({
+  ...heartbeat,
+  timestamp: heartbeat.timestamp.toISOString()
+})
+
+const fromStorageFormat = (heartbeat: ASHeartbeatStorage): ASHeartbeat => ({
+  ...heartbeat,
+  timestamp: new Date(heartbeat.timestamp)
+})
+
+// Heartbeat merging logic based on server implementation
+const heartbeatMerge = (
+  lastHeartbeat: ASHeartbeat,
+  newHeartbeat: ASHeartbeat,
+  pulsetime: number
+): ASHeartbeat | null => {
+  // Only merge if data is identical
+  if (lastHeartbeat.data.url !== newHeartbeat.data.url) {
+    return null
+  }
+
+  // Calculate pulse window end time (last heartbeat start + duration + pulsetime)
+  const lastEndTime = new Date(lastHeartbeat.timestamp.getTime() + lastHeartbeat.duration + pulsetime * 1000)
+  
+  // Check if new heartbeat is within pulse window
+  const withinPulseWindow = newHeartbeat.timestamp <= lastEndTime
+
+  if (withinPulseWindow) {
+    // Calculate new duration: time from last heartbeat start to new heartbeat timestamp
+    const newDuration = newHeartbeat.timestamp.getTime() - lastHeartbeat.timestamp.getTime()
+    
+    // Use max duration to prevent shortening (like server implementation)
+    const extendedDuration = Math.max(lastHeartbeat.duration, newDuration)
+    
+    // Return the last heartbeat with extended duration
+    // Keep original timestamp (start time) and only update duration (like server)
+    return {
+      ...lastHeartbeat,
+      duration: extendedDuration,
+      email: newHeartbeat.email || lastHeartbeat.email
+    }
+  }
+
+  return null
+}
+
+export const getASHeartbeats = (): Promise<ASHeartbeat[]> =>
+  browser.storage.local
+    .get('asHeartbeats')
+    .then((data: StorageData) => {
+      const heartbeats = data.asHeartbeats as ASHeartbeatStorage[] | undefined
+      if (!Array.isArray(heartbeats)) return []
+      return heartbeats.map(fromStorageFormat)
+    })
+
+export const addASHeartbeat = async (heartbeat: ASHeartbeat, pulsetime: number = 30): Promise<void> => {
+  const existingHeartbeats = await getASHeartbeats()
+  
+  if (existingHeartbeats.length === 0) {
+    // No existing heartbeats, just add the new one
+    return browser.storage.local.set({ asHeartbeats: [toStorageFormat(heartbeat)] })
+  }
+
+  // Get the last heartbeat
+  const lastHeartbeat = existingHeartbeats[existingHeartbeats.length - 1]
+  
+  // Try to merge with the last heartbeat
+  const mergedHeartbeat = heartbeatMerge(lastHeartbeat, heartbeat, pulsetime)
+  
+  if (mergedHeartbeat) {
+    // Replace the last heartbeat with the merged one
+    const updatedHeartbeats = [...existingHeartbeats.slice(0, -1), mergedHeartbeat]
+    return browser.storage.local.set({ asHeartbeats: updatedHeartbeats.map(toStorageFormat) })
+  } else {
+    // Cannot merge, add as new heartbeat
+    const updatedHeartbeats = [...existingHeartbeats, heartbeat]
+    return browser.storage.local.set({ asHeartbeats: updatedHeartbeats.map(toStorageFormat) })
+  }
+}
+
+export const clearASHeartbeats = (): Promise<void> =>
+  browser.storage.local.set({ asHeartbeats: [] })

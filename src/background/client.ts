@@ -3,7 +3,7 @@ import config from '../config'
 import { AWClient, IEvent } from 'aw-client'
 import retry from 'p-retry'
 import { emitNotification, getBrowser, logHttpError } from './helpers'
-import { getHostname, getSyncStatus, setSyncStatus, getCloudSyncPolicy } from '../storage'
+import { getHostname, getSyncStatus, setSyncStatus, getCloudSyncPolicy, addASHeartbeat } from '../storage'
 
 export const getClient = async () => {
   const cloudSyncEnabled = await getCloudSyncPolicy()
@@ -75,6 +75,25 @@ export async function sendHeartbeat(
   const hostname = (await getHostname()) ?? 'unknown'
   const syncStatus = await getSyncStatus()
   const cloudSyncEnabled = await getCloudSyncPolicy()
+  
+  // If cloud sync is enabled, store heartbeat data in browser storage instead of sending to server
+  if (cloudSyncEnabled) {
+    try {
+      await addASHeartbeat({
+        timestamp,
+        duration: 0, // Initial duration is 0 for new heartbeats
+        data,
+        email
+      }, pulsetime)
+      console.debug('Heartbeat data stored in browser storage for cloud sync')
+      return Promise.resolve()
+    } catch (err) {
+      console.error('Failed to store heartbeat data in browser storage:', err)
+      return Promise.reject(err)
+    }
+  }
+  
+  // Original functionality for when cloud sync is disabled
   return retry(
     () =>
       client.heartbeat(bucketId, pulsetime, {
