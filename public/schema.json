@@ -1,0 +1,25 @@
+{
+  "type": "object",
+  "properties": {
+    "CLOUD_SYNC": {
+      "type": "boolean",
+      "description": "Enable cloud sync mode instead of ActivityWatch. When true, the extension will store data locally and sync to cloud instead of communicating with ActivityWatch server.",
+      "const": true
+    },
+    "TAG": {
+      "type": "string",
+      "description": "Authentication tag used for cloud sync purposes. Can be empty.",
+      "default": ""
+    },
+    "SUBDOMAIN": {
+      "type": "string",
+      "description": "Subdomain used for authentication purposes. Can be empty.",
+      "default": ""
+    },
+    "REGION": {
+      "type": "string",
+      "description": "Region used for sending data to the right cloud instance. Can be empty.",
+      "default": ""
+    }
+  }
+}

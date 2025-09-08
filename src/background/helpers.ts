@@ -94,3 +94,30 @@ export const assetsonarServerUrl = (subdomain?: string) => {
   const { protocol, host } = config.assetsonarServer
   return `${protocol}://${subdomain}.${host}`
 }
+
+export const assetSonarLambdaUrl = () => {
+  // TODO: get Lambda for all servers
+  // const region = await getRegionPolicy();
+
+  return 'https://chrome-extension.assetsonar.com/chrome_activity.api';
+}
+
+export const processInBatches = async <T>(
+  array: T[], 
+  batchSize: number, 
+  processor: (batch: T[]) => Promise<void>
+): Promise<void> => {
+  for (let i = 0; i < array.length; i += batchSize) {
+    const batch = array.slice(i, i + batchSize)
+    await processor(batch)
+  }
+}
+
+export const getUserEmail = async (): Promise<string | undefined> => {
+  try {
+    const profileInfo = await chrome.identity.getProfileUserInfo();
+    return profileInfo.email
+  } catch (error) {
+    return undefined
+  }
+}

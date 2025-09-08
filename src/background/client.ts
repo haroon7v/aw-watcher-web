@@ -3,14 +3,17 @@ import config from '../config'
 import { AWClient, IEvent } from 'aw-client'
 import retry from 'p-retry'
 import { emitNotification, getBrowser, logHttpError } from './helpers'
-import { getHostname, getSyncStatus, setSyncStatus } from '../storage'
+import { getHostname, getSyncStatus, setSyncStatus, getCloudSyncPolicy, addASHeartbeat } from '../storage'
 
-export const getClient = () =>
-  new AWClient('aw-client-web', { testing: config.isDevelopment })
+export const getClient = async () => {
+  const cloudSyncEnabled = await getCloudSyncPolicy()
+  const mode = cloudSyncEnabled ? 'cloud' : 'default'
+  return new AWClient('aw-client-web', { testing: config.isDevelopment, mode })
+}
 
 // TODO: We might want to get the hostname somehow, maybe like this:
 // https://stackoverflow.com/questions/28223087/how-can-i-allow-firefox-or-chrome-to-read-a-pcs-hostname-or-other-assignable
-export function ensureBucket(
+export async function ensureBucket(
   client: AWClient,
   bucketId: string,
   hostname: string,
@@ -29,6 +32,12 @@ export function ensureBucket(
 }
 
 export async function detectHostname(client: AWClient) {
+  const cloudSyncEnabled = await getCloudSyncPolicy()
+  if (cloudSyncEnabled) {
+    console.debug('CLOUD_SYNC policy enabled, skipping hostname detection from ActivityWatch server')
+    return undefined
+  }
+
   console.debug('Attempting to detect hostname from server...')
   return retry(
     () => {
@@ -61,20 +70,44 @@ export async function sendHeartbeat(
   timestamp: Date,
   data: IEvent['data'],
   pulsetime: number,
+  email: string | undefined
 ) {
   const hostname = (await getHostname()) ?? 'unknown'
   const syncStatus = await getSyncStatus()
+  const cloudSyncEnabled = await getCloudSyncPolicy()
+  
+  // If cloud sync is enabled, store heartbeat data in browser storage instead of sending to server
+  if (cloudSyncEnabled) {
+    try {
+      await addASHeartbeat({
+        timestamp,
+        duration: 0, // Initial duration is 0 for new heartbeats
+        data,
+        email
+      }, pulsetime)
+      console.debug('Heartbeat data stored in browser storage for cloud sync')
+      return Promise.resolve()
+    } catch (err) {
+      console.error('Failed to store heartbeat data in browser storage:', err)
+      return Promise.reject(err)
+    }
+  }
+  
+  // Original functionality for when cloud sync is disabled
   return retry(
     () =>
       client.heartbeat(bucketId, pulsetime, {
         data,
         duration: 0,
         timestamp,
-      }),
+      }, email),
     {
       retries: 3,
-      onFailedAttempt: () =>
-        ensureBucket(client, bucketId, hostname).then(() => {}),
+      onFailedAttempt: () => {
+        if (!cloudSyncEnabled) {
+          ensureBucket(client, bucketId, hostname).then(() => {})
+        }
+      },
     },
   )
     .then(() => {

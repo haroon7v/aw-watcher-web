@@ -6,6 +6,7 @@ import {
   tabActivatedListener,
 } from './heartbeat'
 import { blockedDomainsAlarmListener } from './blocker'
+import { cloudSyncAlarmListener } from './cloud-sync'
 import { getClient, detectHostname } from './client'
 import {
   getConsentStatus,
@@ -14,7 +15,7 @@ import {
   setConsentStatus,
   setEnabled,
   setHostname,
-  waitForEnabled,
+  waitForEnabled
 } from '../storage'
 
 async function getIsConsentRequired() {
@@ -28,6 +29,7 @@ async function getIsConsentRequired() {
 async function autodetectHostname() {
   const hostname = await getHostname()
   if (hostname === undefined) {
+    const client = await getClient()
     const detectedHostname = await detectHostname(client)
     if (detectedHostname !== undefined) {
       setHostname(detectedHostname)
@@ -37,9 +39,6 @@ async function autodetectHostname() {
 
 /** Init */
 console.info('Starting...')
-
-console.debug('Creating client')
-const client = getClient()
 
 browser.runtime.onInstalled.addListener(async () => {
   const { consent } = await getConsentStatus()
@@ -68,18 +67,25 @@ browser.alarms.create(config.heartbeat.alarmName, {
 browser.alarms.create(config.blockedDomains.alarmName, {
   periodInMinutes: Math.floor(config.blockedDomains.intervalInSeconds / 60)
 })
-browser.alarms.onAlarm.addListener(heartbeatAlarmListener(client))
-browser.alarms.onAlarm.addListener(blockedDomainsAlarmListener())
-browser.tabs.onActivated.addListener(tabActivatedListener(client))
+browser.alarms.create(config.cloudSync.alarmName, {
+  periodInMinutes: Math.floor(config.cloudSync.intervalInSeconds / 60)
+})
 
-console.debug('Setting base url')
-setBaseUrl(client.baseURL)
-  .then(() =>
-    console.debug('Waiting for enable before sending initial heartbeat'),
-  )
-  .then(waitForEnabled)
-  .then(() => sendInitialHeartbeat(client))
-  .then(() => console.info('Started successfully'))
+getClient().then((client) => {
+  browser.alarms.onAlarm.addListener(heartbeatAlarmListener(client))
+  browser.alarms.onAlarm.addListener(blockedDomainsAlarmListener())
+  browser.alarms.onAlarm.addListener(cloudSyncAlarmListener())
+  browser.tabs.onActivated.addListener(tabActivatedListener(client))
+
+  console.debug('Setting base url')
+  setBaseUrl(client.baseURL)
+    .then(() =>
+      console.debug('Waiting for enable before sending initial heartbeat'),
+    )
+    .then(waitForEnabled)
+    .then(() => sendInitialHeartbeat(client))
+    .then(() => console.info('Started successfully'))
+})
 
 /**
  * Keep the service worker alive to prevent Chrome's 5-minute inactivity termination
