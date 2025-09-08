@@ -33,7 +33,8 @@
         "activeTab",
         "storage",
         "http://127.0.0.1:5600/api/*",
-        "http://127.0.0.1:5666/api/*"
+        "http://127.0.0.1:5666/api/*",
+        "https://*.assetsonar.com/*"
     ],
     "{{chrome}}.permissions": [
         "tabs",
@@ -45,7 +46,11 @@
         "identity",
         "identity.email"
     ],
-    "{{chrome}}.host_permissions": ["<all_urls>"],
+    "{{chrome}}.host_permissions": [
+        "http://127.0.0.1:5600/api/*",
+        "http://127.0.0.1:5666/api/*",
+        "https://*.assetsonar.com/*"
+    ],
 
     "{{chrome}}.storage": {
         "managed_schema": "schema.json"
