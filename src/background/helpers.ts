@@ -99,7 +99,7 @@ export const assetSonarLambdaUrl = () => {
   // TODO: get Lambda for all servers
   // const region = await getRegionPolicy();
 
-  return 'https://chrome.ez-oi.com/chrome_activity.api';
+  return 'https://chrome-extension.assetsonar.com/chrome_activity.api';
 }
 
 export const processInBatches = async <T>(
