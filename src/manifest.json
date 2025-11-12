@@ -32,8 +32,7 @@
         "activeTab",
         "storage",
         "declarativeNetRequest",
-        "identity",
-        "identity.email"
+        "identity"
     ],
     "{{firefox}}.host_permissions": [
         "http://127.0.0.1:5600/api/*",
