@@ -34,11 +34,13 @@
         "declarativeNetRequest",
         "identity"
     ],
+
     "{{firefox}}.host_permissions": [
         "http://127.0.0.1:5600/api/*",
         "http://127.0.0.1:5666/api/*",
         "https://*.assetsonar.com/*"
     ],
+
     "{{chrome}}.permissions": [
         "tabs",
         "alarms",
@@ -49,6 +51,7 @@
         "identity",
         "identity.email"
     ],
+
     "{{chrome}}.host_permissions": [
         "http://127.0.0.1:5600/api/*",
         "http://127.0.0.1:5666/api/*",
@@ -61,9 +64,9 @@
 
     "{{firefox}}.browser_specific_settings": {
         "gecko": {
-            "id": "dev.chrome@ezo.io",
+            "id": "@assetsonar-saas-discovery-usage-monitor.assetsonar",
             "data_collection_permissions": {
-                "required": ["browsingActivity", "personallyIdentifyingInfo"]
+                "required": ["browsingActivity"]
             }
         }
     }
