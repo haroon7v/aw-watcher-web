@@ -71,12 +71,12 @@ browser.alarms.create(config.cloudSync.alarmName, {
   periodInMinutes: Math.floor(config.cloudSync.intervalInSeconds / 60)
 })
 
-getClient().then((client) => {
-  browser.alarms.onAlarm.addListener(heartbeatAlarmListener(client))
-  browser.alarms.onAlarm.addListener(blockedDomainsAlarmListener())
-  browser.alarms.onAlarm.addListener(cloudSyncAlarmListener())
-  browser.tabs.onActivated.addListener(tabActivatedListener(client))
+browser.alarms.onAlarm.addListener(heartbeatAlarmListener())
+browser.alarms.onAlarm.addListener(blockedDomainsAlarmListener())
+browser.alarms.onAlarm.addListener(cloudSyncAlarmListener())
+browser.tabs.onActivated.addListener(tabActivatedListener())
 
+getClient().then((client) => {
   console.debug('Setting base url')
   setBaseUrl(client.baseURL)
     .then(() =>

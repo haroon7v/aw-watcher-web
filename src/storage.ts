@@ -121,12 +121,17 @@ export const setDomains = (domains: Domain[]): Promise<void> =>
 
 // Chrome extension policy for CLOUD_SYNC
 export const getCloudSyncPolicy = async (): Promise<boolean> => {
+  // Firefox doesn't support cloud sync - always return false
+  if (navigator.userAgent.includes('Firefox')) {
+    return false
+  }
+  
   try {
     // Try to read from managed storage (policy)
     const result = await browser.storage.managed.get('CLOUD_SYNC')
     return Boolean(result.CLOUD_SYNC)
   } catch (error) {
-    // If managed storage is not available (e.g., in Firefox), default to false
+    // If managed storage is not available, default to false
     console.debug('Managed storage not available, defaulting CLOUD_SYNC to false:', error)
     return false
   }
