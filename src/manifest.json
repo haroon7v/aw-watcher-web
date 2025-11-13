@@ -64,7 +64,7 @@
 
     "{{firefox}}.browser_specific_settings": {
         "gecko": {
-            "id": "@assetsonar-saas-discovery-usage-monitor.assetsonar",
+            "id": "@assetsonar-saas-discovery-usage-monitor.ezo-assetsonar",
             "data_collection_permissions": {
                 "required": ["browsingActivity"]
             }
