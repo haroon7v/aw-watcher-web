@@ -6,9 +6,16 @@ import { assetsonarServerUrl } from './helpers'
 export const blockedDomainsAlarmListener = () => async (alarm: browser.Alarms.Alarm) => {
   if (alarm.name !== config.blockedDomains.alarmName) return
 
-  const response = await fetchBlockedDomains()
-  // setDomains(response.domains) discuss if required
-  await updateDynamicRules(response.domains)
+  try {
+    const response = await fetchBlockedDomains()
+    if (!Array.isArray(response?.domains)) {
+      console.debug('Invalid response: domains array not found')
+      return
+    }
+    await updateDynamicRules(response.domains)
+  } catch (error) {
+    console.debug('Failed to fetch blocked domains:', error)
+  }
 }
 
 export const updateDynamicRules = async (domains: Array<{ id: string, domain: string, match_type: string }>) => {
@@ -44,12 +51,19 @@ function buildUrlFilter(domain: string, matchType: string): string {
 }
 
 const fetchBlockedDomains = async () => {
-  // Read subdomain and itam_access_token from managed storage
-  const managed = await browser.storage.managed.get(['subdomain', 'itam_access_token'])
-  const subdomain = typeof managed.subdomain === 'string' ? managed.subdomain : 'comtest'
-  const itamAccessToken = typeof managed.itam_access_token === 'string' ? managed.itam_access_token : '4c7e2fc19aa3ca6abdd905f7d99dd574'
-  if (!subdomain) throw new Error('subdomain not found in managed storage')
-  if (!itamAccessToken) throw new Error('itam_access_token not found in managed storage')
+  let managed: { subdomain?: string; itam_access_token?: string }
+  try {
+    managed = await browser.storage.managed.get(['subdomain', 'itam_access_token'])
+  } catch (error) {
+    console.debug('Managed storage not available:', error)
+    throw new Error('Managed storage not available')
+  }
+  
+  const subdomain = managed.subdomain
+  const itamAccessToken = managed.itam_access_token
+  if (!subdomain || !itamAccessToken) {
+    throw new Error('subdomain or itam_access_token not found in managed storage')
+  }
 
   const url = `${assetsonarServerUrl(subdomain)}/api/api_integration/blocked_web_domains.api?itam_access_token=${encodeURIComponent(itamAccessToken)}`
   const response = await fetch(url)
