@@ -65,7 +65,7 @@ const fetchBlockedDomains = async () => {
     throw new Error('subdomain or itam_access_token not found in managed storage')
   }
 
-  const url = `${assetsonarServerUrl(subdomain)}/api/api_integration/blocked_web_domains.api?itam_access_token=${encodeURIComponent(itamAccessToken)}`
+  const url = `${assetsonarServerUrl(subdomain)}/api/api_integration/blocked_web_domains.api?token=${encodeURIComponent(itamAccessToken)}`
   const response = await fetch(url)
   if (!response.ok) {
     throw new Error(`Failed to fetch blocked domains: ${response.statusText}`)
