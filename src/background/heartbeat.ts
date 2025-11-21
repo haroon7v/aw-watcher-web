@@ -2,7 +2,7 @@ import browser from 'webextension-polyfill'
 import { getActiveWindowTab, getTab, getTabs, getUserEmail } from './helpers'
 import config from '../config'
 import { AWClient, IEvent } from 'aw-client'
-import { getBucketId, sendHeartbeat } from './client'
+import { getBucketId, getClient, sendHeartbeat } from './client'
 import { getEnabled, getHeartbeatData, setHeartbeatData } from '../storage'
 import deepEqual from 'deep-equal'
 
@@ -69,7 +69,8 @@ export const sendInitialHeartbeat = async (client: AWClient) => {
 }
 
 export const heartbeatAlarmListener =
-  (client: AWClient) => async (alarm: browser.Alarms.Alarm) => {
+  () => async (alarm: browser.Alarms.Alarm) => {
+    const client = await getClient();
     if (alarm.name !== config.heartbeat.alarmName) return
     const activeWindowTab = await getActiveWindowTab()
     if (!activeWindowTab) return
@@ -80,8 +81,9 @@ export const heartbeatAlarmListener =
   }
 
 export const tabActivatedListener =
-  (client: AWClient) =>
+  () =>
   async (activeInfo: browser.Tabs.OnActivatedActiveInfoType) => {
+    const client = await getClient();
     const tab = await getTab(activeInfo.tabId)
     const tabs = await getTabs()
     const email = await getUserEmail()

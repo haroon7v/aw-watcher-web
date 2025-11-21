@@ -1,6 +1,6 @@
 {
     "{{chrome}}.manifest_version": 3,
-    "{{firefox}}.manifest_version": 2,
+    "{{firefox}}.manifest_version": 3,
 
     "name": "AssetSonar SaaS Discovery & Usage Monitor",
     "description": "Gain visibility into SaaS usage, track shadow IT, and optimize software management with AssetSonar's Chrome Extension.",
@@ -12,14 +12,13 @@
     "{{chrome}}.action": {
         "default_icon": { "128": "logo-128.png" }
     },
-    "{{firefox}}.browser_action": {
-        "default_icon": "logo-128.png"
+    "{{firefox}}.action": {
+        "default_icon": { "128": "logo-128.png" }
     },
 
     "background": {
         "{{chrome}}.service_worker": "src/background/main.ts",
-        "{{firefox}}.scripts": ["src/background/main.ts"],
-        "{{firefox}}.persistent": true
+        "{{firefox}}.scripts": ["src/background/main.ts"]
     },
 
     "options_ui": {
@@ -32,10 +31,16 @@
         "notifications",
         "activeTab",
         "storage",
+        "declarativeNetRequest",
+        "identity"
+    ],
+
+    "{{firefox}}.host_permissions": [
         "http://127.0.0.1:5600/api/*",
         "http://127.0.0.1:5666/api/*",
         "https://*.assetsonar.com/*"
     ],
+
     "{{chrome}}.permissions": [
         "tabs",
         "alarms",
@@ -46,6 +51,7 @@
         "identity",
         "identity.email"
     ],
+
     "{{chrome}}.host_permissions": [
         "http://127.0.0.1:5600/api/*",
         "http://127.0.0.1:5666/api/*",
@@ -58,7 +64,10 @@
 
     "{{firefox}}.browser_specific_settings": {
         "gecko": {
-            "id": "{ef87d84c-2127-493f-b952-5b4e744245bc}"
+            "id": "@assetsonar-saas-discovery-usage-monitor.ezo-assetsonar",
+            "data_collection_permissions": {
+                "required": ["browsingActivity"]
+            }
         }
     }
 }
