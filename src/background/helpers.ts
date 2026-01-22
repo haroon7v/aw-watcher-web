@@ -121,3 +121,14 @@ export const getUserEmail = async (): Promise<string | undefined> => {
     return undefined
   }
 }
+
+export const getBrowserNameForEvent = async (): Promise<string> => {
+  // Use build-time environment variable if available (set during build for each browser)
+  const envBrowser = import.meta.env.VITE_TARGET_BROWSER
+  if (envBrowser && typeof envBrowser === 'string') {
+    return envBrowser.toLowerCase()
+  }
+  
+  // Fallback to runtime detection
+  return getBrowser()
+}
