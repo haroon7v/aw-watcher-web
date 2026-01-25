@@ -1,6 +1,6 @@
 import browser from 'webextension-polyfill'
 import config from '../config'
-import { assetsonarServerUrl } from './helpers'
+import { assetsonarServerUrl, getBrowserNameForEvent } from './helpers'
 
 
 export const blockedDomainsAlarmListener = () => async (alarm: browser.Alarms.Alarm) => {
@@ -65,7 +65,8 @@ const fetchBlockedDomains = async () => {
     throw new Error('subdomain or itam_access_token not found in managed storage')
   }
 
-  const url = `${assetsonarServerUrl(subdomain)}/api/api_integration/blocked_web_domains.api?token=${encodeURIComponent(itamAccessToken)}`
+  const browserName = await getBrowserNameForEvent()
+  const url = `${assetsonarServerUrl(subdomain)}/api/api_integration/blocked_web_domains.api?token=${encodeURIComponent(itamAccessToken)}&browser=${encodeURIComponent(browserName)}`
   const response = await fetch(url)
   if (!response.ok) {
     throw new Error(`Failed to fetch blocked domains: ${response.statusText}`)
