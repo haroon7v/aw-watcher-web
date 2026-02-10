@@ -1,5 +1,5 @@
 import browser from 'webextension-polyfill'
-import { getActiveWindowTab, getTab, getTabs, getUserEmail } from './helpers'
+import { getActiveWindowTab, getTab, getTabs, getUserEmail, getBrowserNameForEvent } from './helpers'
 import config from '../config'
 import { AWClient, IEvent } from 'aw-client'
 import { getBucketId, getClient, sendHeartbeat } from './client'
@@ -29,12 +29,14 @@ async function heartbeat(
   }
 
   const now = new Date()
+  const browserName = await getBrowserNameForEvent()
   const data: IEvent['data'] = {
     url: tab.url,
     title: tab.title,
     audible: tab.audible ?? false,
     incognito: tab.incognito,
     tabCount: tabCount,
+    browser: browserName,
   }
   const previousData = await getHeartbeatData()
   if (previousData && !deepEqual(previousData, data)) {
