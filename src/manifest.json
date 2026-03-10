@@ -17,13 +17,13 @@
         "default_icon": { "128": "logo-128.png" }
     },
     "{{safari}}.action": {
-        "default_icon": { "128": "logo-128.png" },
-        "default_popup": "src/popup/index.html"
+        "default_icon": { "128": "logo-128.png" }
     },
 
     "background": {
         "{{chrome}}.service_worker": "src/background/main.ts",
-        "{{firefox}}.scripts": ["src/background/main.ts"]
+        "{{firefox}}.scripts": ["src/background/main.ts"],
+        "{{safari}}.service_worker": "src/background/main.ts"
     },
 
     "options_ui": {
