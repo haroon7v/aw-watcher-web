@@ -1,6 +1,7 @@
 {
     "{{chrome}}.manifest_version": 3,
     "{{firefox}}.manifest_version": 3,
+    "{{safari}}.manifest_version": 3,
 
     "name": "AssetSonar SaaS Discovery & Usage Monitor",
     "description": "Gain visibility into SaaS usage, track shadow IT, and optimize software management with AssetSonar's Chrome Extension.",
@@ -14,6 +15,10 @@
     },
     "{{firefox}}.action": {
         "default_icon": { "128": "logo-128.png" }
+    },
+    "{{safari}}.action": {
+        "default_icon": { "128": "logo-128.png" },
+        "default_popup": "src/popup/index.html"
     },
 
     "background": {
@@ -61,6 +66,14 @@
     "{{chrome}}.storage": {
         "managed_schema": "schema.json"
     },
+    "{{safari}}.permissions": [
+        "tabs",
+        "alarms",
+        "notifications",
+        "activeTab",
+        "storage"
+    ],
+    "{{safari}}.host_permissions": ["<all_urls>"],
 
     "{{firefox}}.browser_specific_settings": {
         "gecko": {
