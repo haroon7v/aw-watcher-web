@@ -71,7 +71,8 @@
         "alarms",
         "notifications",
         "activeTab",
-        "storage"
+        "storage",
+        "declarativeNetRequest"
     ],
     "{{safari}}.host_permissions": ["<all_urls>"],
 
