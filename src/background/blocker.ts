@@ -40,6 +40,10 @@ export const updateDynamicRules = async (domains: Array<{ id: string, domain: st
 }
 
 function buildUrlFilter(domain: string, matchType: string): string {
+  const browserTarget = import.meta.env.VITE_TARGET_BROWSER
+
+  if (browserTarget === 'safari') { return domain.trim() }
+
   switch (matchType) {
     case 'starts_with':
       return `^(https?://)?(www\\.)?${domain}(\\.[^/?#]+)*([/?#]|$)`

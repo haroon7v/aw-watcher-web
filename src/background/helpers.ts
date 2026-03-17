@@ -34,15 +34,6 @@ export const getActiveWindowTab = async (): Promise<
   return undefined
 }
 
-export function emitNotification(title: string, message: string) {
-  browser.notifications.create({
-    type: 'basic',
-    iconUrl: browser.runtime.getURL('logo-128.png'),
-    title,
-    message,
-  })
-}
-
 export const getBrowser = async (): Promise<string> => {
   const storedName = await getBrowserName()
   if (storedName) {
