@@ -69,7 +69,8 @@
         "alarms",
         "activeTab",
         "storage",
-        "declarativeNetRequest"
+        "declarativeNetRequest",
+        "nativeMessaging"
     ],
     "{{safari}}.host_permissions": ["<all_urls>"],
 
