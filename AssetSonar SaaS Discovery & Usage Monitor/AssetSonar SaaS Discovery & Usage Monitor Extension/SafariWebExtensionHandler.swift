@@ -9,21 +9,9 @@ import SafariServices
 import os.log
 
 class SafariWebExtensionHandler: NSObject, NSExtensionRequestHandling {
-    private let defaultManagedValues: [String: Any] = [
-        "CLOUD_SYNC": false,
-        "TAG": "",
-        "SUBDOMAIN": "",
-        "REGION": ""
-    ]
-
     private func configValue(for key: String) -> Any? {
-        if let defaultsValue = UserDefaults.standard.object(forKey: key) {
-            return defaultsValue
-        }
-        if let plistValue = Bundle.main.object(forInfoDictionaryKey: key) {
-            return plistValue
-        }
-        return defaultManagedValues[key]
+        let managedConfig = UserDefaults.standard.dictionary(forKey: "com.apple.configuration.managed")
+        return managedConfig?[key]
     }
 
     private func buildManagedConfigResponse(from payload: [String: Any]) -> [String: Any] {
