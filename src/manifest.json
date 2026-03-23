@@ -1,5 +1,6 @@
 {
     "{{chrome}}.manifest_version": 3,
+    "{{edge}}.manifest_version": 3,
     "{{firefox}}.manifest_version": 3,
     "{{safari}}.manifest_version": 3,
 
@@ -13,6 +14,9 @@
     "{{chrome}}.action": {
         "default_icon": { "128": "logo-128.png" }
     },
+    "{{edge}}.action": {
+        "default_icon": { "128": "logo-128.png" }
+    },
     "{{firefox}}.action": {
         "default_icon": { "128": "logo-128.png" }
     },
@@ -23,6 +27,7 @@
 
     "background": {
         "{{chrome}}.service_worker": "src/background/main.ts",
+        "{{edge}}.service_worker": "src/background/main.ts",
         "{{firefox}}.scripts": ["src/background/main.ts"]
     },
 
@@ -56,14 +61,32 @@
         "identity",
         "identity.email"
     ],
+    "{{edge}}.permissions": [
+        "tabs",
+        "alarms",
+        "notifications",
+        "activeTab",
+        "storage",
+        "declarativeNetRequest",
+        "identity",
+        "identity.email"
+    ],
 
     "{{chrome}}.host_permissions": [
         "http://127.0.0.1:5600/api/*",
         "http://127.0.0.1:5666/api/*",
         "https://*.assetsonar.com/*"
     ],
+    "{{edge}}.host_permissions": [
+        "http://127.0.0.1:5600/api/*",
+        "http://127.0.0.1:5666/api/*",
+        "https://*.assetsonar.com/*"
+    ],
 
     "{{chrome}}.storage": {
+        "managed_schema": "schema.json"
+    },
+    "{{edge}}.storage": {
         "managed_schema": "schema.json"
     },
     "{{safari}}.permissions": [
