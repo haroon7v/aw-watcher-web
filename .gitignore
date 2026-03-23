@@ -2,3 +2,8 @@ node_modules
 build
 artifacts
 .DS_Store
+
+# Xcode: ignore local/user-specific artifacts, keep project files
+DerivedData/
+*.xcuserstate
+**/xcuserdata/
