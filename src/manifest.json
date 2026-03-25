@@ -4,8 +4,8 @@
     "{{safari}}.manifest_version": 3,
 
     "name": "AssetSonar SaaS Discovery & Usage Monitor",
-    "description": "Gain visibility into SaaS usage, track shadow IT, and optimize software management with AssetSonar's Chrome Extension.",
-    "version": "2.1.0",
+    "description": "Gain visibility into SaaS usage, track shadow IT, and optimize software management with AssetSonar's Browser Extension.",
+    "version": "2.2.0",
     "icons": {
         "128": "logo-128.png"
     },
@@ -17,13 +17,13 @@
         "default_icon": { "128": "logo-128.png" }
     },
     "{{safari}}.action": {
-        "default_icon": { "128": "logo-128.png" },
-        "default_popup": "src/popup/index.html"
+        "default_icon": { "128": "logo-128.png" }
     },
 
     "background": {
         "{{chrome}}.service_worker": "src/background/main.ts",
-        "{{firefox}}.scripts": ["src/background/main.ts"]
+        "{{firefox}}.scripts": ["src/background/main.ts"],
+        "{{safari}}.service_worker": "src/background/main.ts"
     },
 
     "options_ui": {
@@ -33,7 +33,6 @@
     "{{firefox}}.permissions": [
         "tabs",
         "alarms",
-        "notifications",
         "activeTab",
         "storage",
         "declarativeNetRequest",
@@ -49,7 +48,6 @@
     "{{chrome}}.permissions": [
         "tabs",
         "alarms",
-        "notifications",
         "activeTab",
         "storage",
         "declarativeNetRequest",
@@ -69,9 +67,10 @@
     "{{safari}}.permissions": [
         "tabs",
         "alarms",
-        "notifications",
         "activeTab",
-        "storage"
+        "storage",
+        "declarativeNetRequest",
+        "nativeMessaging"
     ],
     "{{safari}}.host_permissions": ["<all_urls>"],
 
