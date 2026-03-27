@@ -51,18 +51,18 @@ function buildUrlFilter(domain: string, matchType: string): string {
 }
 
 const fetchBlockedDomains = async () => {
-  let managed: { subdomain?: string; itam_access_token?: string }
+  let managed: { SUBDOMAIN?: string; TAG?: string }
   try {
-    managed = await browser.storage.managed.get(['subdomain', 'itam_access_token'])
+    managed = await browser.storage.managed.get(['SUBDOMAIN', 'TAG'])
   } catch (error) {
     console.debug('Managed storage not available:', error)
     throw new Error('Managed storage not available')
   }
   
-  const subdomain = managed.subdomain
-  const itamAccessToken = managed.itam_access_token
+  const subdomain = managed.SUBDOMAIN
+  const itamAccessToken = managed.TAG
   if (!subdomain || !itamAccessToken) {
-    throw new Error('subdomain or itam_access_token not found in managed storage')
+    throw new Error('SUBDOMAIN or TAG not found in managed storage')
   }
 
   const browserName = await getBrowserNameForEvent()

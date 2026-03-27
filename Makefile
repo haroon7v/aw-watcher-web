@@ -22,7 +22,13 @@ dev:
 build-chrome: install update-chrome zip-build-chrome
 
 update-chrome:
-	VITE_TARGET_BROWSER=chrome npx vite build
+	VITE_TARGET_BROWSER=chrome npx vite build && cp public/schema.json build/schema.json
+
+# Edge build uses the same Chromium code path, but keeps target explicit
+build-edge: install update-edge zip-build-edge
+
+update-edge:
+	VITE_TARGET_BROWSER=edge npx vite build && cp public/schema.json build/schema.json
 
 # This is what Mozilla wants us to upload when we release a new version to the Addon "store"
 build-firefox: install update-firefox zip-build-firefox
@@ -42,6 +48,9 @@ update-safari:
 # To build a zip archive for uploading to the Chrome Web Store or Mozilla Addons
 zip-build-chrome:
 	mkdir -p artifacts && cd build && zip -FS ../artifacts/chrome.zip -r *
+
+zip-build-edge:
+	mkdir -p artifacts && cd build && zip -FS ../artifacts/edge.zip -r *
 
 zip-build-firefox:
 	mkdir -p artifacts && cd build && zip -FS ../artifacts/firefox.zip -r *
