@@ -5,8 +5,8 @@
     "{{safari}}.manifest_version": 3,
 
     "name": "AssetSonar SaaS Discovery & Usage Monitor",
-    "description": "Gain visibility into SaaS usage, track shadow IT, and optimize software management with AssetSonar's Chrome Extension.",
-    "version": "2.1.0",
+    "description": "Gain visibility into SaaS usage, track shadow IT, and optimize software management with AssetSonar's Browser Extension.",
+    "version": "2.2.0",
     "icons": {
         "128": "logo-128.png"
     },
