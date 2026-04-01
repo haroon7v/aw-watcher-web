@@ -7,23 +7,46 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		2A5DEB092F71560A00BFD875 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A5DEB082F71560A00BFD875 /* AppDelegate.swift */; };
-		2A5DEB0D2F71560A00BFD875 /* Main.html in Resources */ = {isa = PBXBuildFile; fileRef = 2A5DEB0B2F71560A00BFD875 /* Main.html */; };
-		2A5DEB0F2F71560A00BFD875 /* Icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 2A5DEB0E2F71560A00BFD875 /* Icon.png */; };
-		2A5DEB112F71560A00BFD875 /* Style.css in Resources */ = {isa = PBXBuildFile; fileRef = 2A5DEB102F71560A00BFD875 /* Style.css */; };
-		2A5DEB132F71560A00BFD875 /* Script.js in Resources */ = {isa = PBXBuildFile; fileRef = 2A5DEB122F71560A00BFD875 /* Script.js */; };
-		2A5DEB152F71560A00BFD875 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A5DEB142F71560A00BFD875 /* ViewController.swift */; };
-		2A5DEB182F71560A00BFD875 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2A5DEB162F71560A00BFD875 /* Main.storyboard */; };
-		2A5DEB1A2F71560A00BFD875 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2A5DEB192F71560A00BFD875 /* Assets.xcassets */; };
+		2AD16BFA2F7BDCD0002673D2 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AD16BF92F7BDCD0002673D2 /* AppDelegate.swift */; };
+		2AD16BFE2F7BDCD0002673D2 /* Main.html in Resources */ = {isa = PBXBuildFile; fileRef = 2AD16BFC2F7BDCD0002673D2 /* Main.html */; };
+		2AD16C002F7BDCD0002673D2 /* Icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 2AD16BFF2F7BDCD0002673D2 /* Icon.png */; };
+		2AD16C022F7BDCD0002673D2 /* Style.css in Resources */ = {isa = PBXBuildFile; fileRef = 2AD16C012F7BDCD0002673D2 /* Style.css */; };
+		2AD16C042F7BDCD0002673D2 /* Script.js in Resources */ = {isa = PBXBuildFile; fileRef = 2AD16C032F7BDCD0002673D2 /* Script.js */; };
+		2AD16C062F7BDCD0002673D2 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AD16C052F7BDCD0002673D2 /* ViewController.swift */; };
+		2AD16C092F7BDCD0002673D2 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2AD16C072F7BDCD0002673D2 /* Main.storyboard */; };
+		2AD16C0B2F7BDCD0002673D2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2AD16C0A2F7BDCD0002673D2 /* Assets.xcassets */; };
+		2AD16C122F7BDCD1002673D2 /* AssetSonar SaaS Discovery & Usage Monitor Extension.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = 2AD16C112F7BDCD1002673D2 /* AssetSonar SaaS Discovery & Usage Monitor Extension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		2AD16C172F7BDCD1002673D2 /* SafariWebExtensionHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AD16C162F7BDCD1002673D2 /* SafariWebExtensionHandler.swift */; };
+		2AD16C2D2F7BDCD1002673D2 /* logo-128.png in Resources */ = {isa = PBXBuildFile; fileRef = 2AD16C232F7BDCD1002673D2 /* logo-128.png */; };
+		2AD16C2E2F7BDCD1002673D2 /* browser-polyfill.js in Resources */ = {isa = PBXBuildFile; fileRef = 2AD16C242F7BDCD1002673D2 /* browser-polyfill.js */; };
+		2AD16C2F2F7BDCD1002673D2 /* index.css in Resources */ = {isa = PBXBuildFile; fileRef = 2AD16C252F7BDCD1002673D2 /* index.css */; };
+		2AD16C302F7BDCD1002673D2 /* index3.css in Resources */ = {isa = PBXBuildFile; fileRef = 2AD16C262F7BDCD1002673D2 /* index3.css */; };
+		2AD16C312F7BDCD1002673D2 /* index2.css in Resources */ = {isa = PBXBuildFile; fileRef = 2AD16C272F7BDCD1002673D2 /* index2.css */; };
+		2AD16C322F7BDCD1002673D2 /* public in Resources */ = {isa = PBXBuildFile; fileRef = 2AD16C282F7BDCD1002673D2 /* public */; };
+		2AD16C332F7BDCD1002673D2 /* manifest.json in Resources */ = {isa = PBXBuildFile; fileRef = 2AD16C292F7BDCD1002673D2 /* manifest.json */; };
+		2AD16C342F7BDCD1002673D2 /* schema.json in Resources */ = {isa = PBXBuildFile; fileRef = 2AD16C2A2F7BDCD1002673D2 /* schema.json */; };
+		2AD16C352F7BDCD1002673D2 /* storage.js in Resources */ = {isa = PBXBuildFile; fileRef = 2AD16C2B2F7BDCD1002673D2 /* storage.js */; };
+		2AD16C362F7BDCD1002673D2 /* src in Resources */ = {isa = PBXBuildFile; fileRef = 2AD16C2C2F7BDCD1002673D2 /* src */; };
 /* End PBXBuildFile section */
 
+/* Begin PBXContainerItemProxy section */
+		2AD16C132F7BDCD1002673D2 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 2AD16BEE2F7BDCD0002673D2 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 2AD16C102F7BDCD1002673D2;
+			remoteInfo = "AssetSonar SaaS Discovery & Usage Monitor Extension";
+		};
+/* End PBXContainerItemProxy section */
+
 /* Begin PBXCopyFilesBuildPhase section */
-		2A5DEB2D2F71560A00BFD875 /* Embed Foundation Extensions */ = {
+		2AD16C1E2F7BDCD1002673D2 /* Embed Foundation Extensions */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
 			dstPath = "";
 			dstSubfolderSpec = 13;
 			files = (
+				2AD16C122F7BDCD1002673D2 /* AssetSonar SaaS Discovery & Usage Monitor Extension.appex in Embed Foundation Extensions */,
 			);
 			name = "Embed Foundation Extensions";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -31,31 +54,40 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		2A5DEB052F71560A00BFD875 /* AssetSonar SaaS Discovery & Usage Monitor.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "AssetSonar SaaS Discovery & Usage Monitor.app"; sourceTree = BUILT_PRODUCTS_DIR; };
-		2A5DEB082F71560A00BFD875 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		2A5DEB0C2F71560A00BFD875 /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.html; name = Base; path = Base.lproj/Main.html; sourceTree = "<group>"; };
-		2A5DEB0E2F71560A00BFD875 /* Icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Icon.png; sourceTree = "<group>"; };
-		2A5DEB102F71560A00BFD875 /* Style.css */ = {isa = PBXFileReference; lastKnownFileType = text.css; path = Style.css; sourceTree = "<group>"; };
-		2A5DEB122F71560A00BFD875 /* Script.js */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.javascript; path = Script.js; sourceTree = "<group>"; };
-		2A5DEB142F71560A00BFD875 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		2A5DEB172F71560A00BFD875 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		2A5DEB192F71560A00BFD875 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		2A5DEB1B2F71560A00BFD875 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		2A5DEB252F71560A00BFD875 /* SafariWebExtensionHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SafariWebExtensionHandler.swift; sourceTree = "<group>"; };
-		2A5DEB272F71560A00BFD875 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		2A5DEB322F71560B00BFD875 /* logo-128.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "logo-128.png"; path = "../../build/logo-128.png"; sourceTree = "<group>"; };
-		2A5DEB332F71560B00BFD875 /* browser-polyfill.js */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.javascript; name = "browser-polyfill.js"; path = "../../build/browser-polyfill.js"; sourceTree = "<group>"; };
-		2A5DEB342F71560B00BFD875 /* index.css */ = {isa = PBXFileReference; lastKnownFileType = text.css; name = index.css; path = ../../build/index.css; sourceTree = "<group>"; };
-		2A5DEB352F71560B00BFD875 /* index2.css */ = {isa = PBXFileReference; lastKnownFileType = text.css; name = index2.css; path = ../../build/index2.css; sourceTree = "<group>"; };
-		2A5DEB362F71560B00BFD875 /* public */ = {isa = PBXFileReference; lastKnownFileType = folder; name = public; path = ../../build/public; sourceTree = "<group>"; };
-		2A5DEB372F71560B00BFD875 /* manifest.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; name = manifest.json; path = ../../build/manifest.json; sourceTree = "<group>"; };
-		2A5DEB382F71560B00BFD875 /* schema.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; name = schema.json; path = ../../build/schema.json; sourceTree = "<group>"; };
-		2A5DEB392F71560B00BFD875 /* storage.js */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.javascript; name = storage.js; path = ../../build/storage.js; sourceTree = "<group>"; };
-		2A5DEB3A2F71560B00BFD875 /* src */ = {isa = PBXFileReference; lastKnownFileType = folder; name = src; path = ../../build/src; sourceTree = "<group>"; };
+		2AD16BF62F7BDCD0002673D2 /* AssetSonar SaaS Discovery & Usage Monitor.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "AssetSonar SaaS Discovery & Usage Monitor.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		2AD16BF92F7BDCD0002673D2 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		2AD16BFD2F7BDCD0002673D2 /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.html; name = Base; path = Base.lproj/Main.html; sourceTree = "<group>"; };
+		2AD16BFF2F7BDCD0002673D2 /* Icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Icon.png; sourceTree = "<group>"; };
+		2AD16C012F7BDCD0002673D2 /* Style.css */ = {isa = PBXFileReference; lastKnownFileType = text.css; path = Style.css; sourceTree = "<group>"; };
+		2AD16C032F7BDCD0002673D2 /* Script.js */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.javascript; path = Script.js; sourceTree = "<group>"; };
+		2AD16C052F7BDCD0002673D2 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		2AD16C082F7BDCD0002673D2 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		2AD16C0A2F7BDCD0002673D2 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		2AD16C0C2F7BDCD0002673D2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		2AD16C112F7BDCD1002673D2 /* AssetSonar SaaS Discovery & Usage Monitor Extension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = "AssetSonar SaaS Discovery & Usage Monitor Extension.appex"; sourceTree = BUILT_PRODUCTS_DIR; };
+		2AD16C162F7BDCD1002673D2 /* SafariWebExtensionHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SafariWebExtensionHandler.swift; sourceTree = "<group>"; };
+		2AD16C182F7BDCD1002673D2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		2AD16C232F7BDCD1002673D2 /* logo-128.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "logo-128.png"; path = "../../build/logo-128.png"; sourceTree = "<group>"; };
+		2AD16C242F7BDCD1002673D2 /* browser-polyfill.js */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.javascript; name = "browser-polyfill.js"; path = "../../build/browser-polyfill.js"; sourceTree = "<group>"; };
+		2AD16C252F7BDCD1002673D2 /* index.css */ = {isa = PBXFileReference; lastKnownFileType = text.css; name = index.css; path = ../../build/index.css; sourceTree = "<group>"; };
+		2AD16C262F7BDCD1002673D2 /* index3.css */ = {isa = PBXFileReference; lastKnownFileType = text.css; name = index3.css; path = ../../build/index3.css; sourceTree = "<group>"; };
+		2AD16C272F7BDCD1002673D2 /* index2.css */ = {isa = PBXFileReference; lastKnownFileType = text.css; name = index2.css; path = ../../build/index2.css; sourceTree = "<group>"; };
+		2AD16C282F7BDCD1002673D2 /* public */ = {isa = PBXFileReference; lastKnownFileType = folder; name = public; path = ../../build/public; sourceTree = "<group>"; };
+		2AD16C292F7BDCD1002673D2 /* manifest.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; name = manifest.json; path = ../../build/manifest.json; sourceTree = "<group>"; };
+		2AD16C2A2F7BDCD1002673D2 /* schema.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; name = schema.json; path = ../../build/schema.json; sourceTree = "<group>"; };
+		2AD16C2B2F7BDCD1002673D2 /* storage.js */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.javascript; name = storage.js; path = ../../build/storage.js; sourceTree = "<group>"; };
+		2AD16C2C2F7BDCD1002673D2 /* src */ = {isa = PBXFileReference; lastKnownFileType = folder; name = src; path = ../../build/src; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		2A5DEB022F71560A00BFD875 /* Frameworks */ = {
+		2AD16BF32F7BDCD0002673D2 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		2AD16C0E2F7BDCD1002673D2 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -65,69 +97,71 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		2A5DEAFC2F71560A00BFD875 = {
+		2AD16BED2F7BDCD0002673D2 = {
 			isa = PBXGroup;
 			children = (
-				2A5DEB072F71560A00BFD875 /* AssetSonar SaaS Discovery & Usage Monitor */,
-				2A5DEB242F71560A00BFD875 /* AssetSonar SaaS Discovery & Usage Monitor Extension */,
-				2A5DEB062F71560A00BFD875 /* Products */,
+				2AD16BF82F7BDCD0002673D2 /* AssetSonar SaaS Discovery & Usage Monitor */,
+				2AD16C152F7BDCD1002673D2 /* AssetSonar SaaS Discovery & Usage Monitor Extension */,
+				2AD16BF72F7BDCD0002673D2 /* Products */,
 			);
 			sourceTree = "<group>";
 		};
-		2A5DEB062F71560A00BFD875 /* Products */ = {
+		2AD16BF72F7BDCD0002673D2 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				2A5DEB052F71560A00BFD875 /* AssetSonar SaaS Discovery & Usage Monitor.app */,
+				2AD16BF62F7BDCD0002673D2 /* AssetSonar SaaS Discovery & Usage Monitor.app */,
+				2AD16C112F7BDCD1002673D2 /* AssetSonar SaaS Discovery & Usage Monitor Extension.appex */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		2A5DEB072F71560A00BFD875 /* AssetSonar SaaS Discovery & Usage Monitor */ = {
+		2AD16BF82F7BDCD0002673D2 /* AssetSonar SaaS Discovery & Usage Monitor */ = {
 			isa = PBXGroup;
 			children = (
-				2A5DEB082F71560A00BFD875 /* AppDelegate.swift */,
-				2A5DEB142F71560A00BFD875 /* ViewController.swift */,
-				2A5DEB162F71560A00BFD875 /* Main.storyboard */,
-				2A5DEB192F71560A00BFD875 /* Assets.xcassets */,
-				2A5DEB1B2F71560A00BFD875 /* Info.plist */,
-				2A5DEB0A2F71560A00BFD875 /* Resources */,
+				2AD16BF92F7BDCD0002673D2 /* AppDelegate.swift */,
+				2AD16C052F7BDCD0002673D2 /* ViewController.swift */,
+				2AD16C072F7BDCD0002673D2 /* Main.storyboard */,
+				2AD16C0A2F7BDCD0002673D2 /* Assets.xcassets */,
+				2AD16C0C2F7BDCD0002673D2 /* Info.plist */,
+				2AD16BFB2F7BDCD0002673D2 /* Resources */,
 			);
 			path = "AssetSonar SaaS Discovery & Usage Monitor";
 			sourceTree = "<group>";
 		};
-		2A5DEB0A2F71560A00BFD875 /* Resources */ = {
+		2AD16BFB2F7BDCD0002673D2 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				2A5DEB0B2F71560A00BFD875 /* Main.html */,
-				2A5DEB0E2F71560A00BFD875 /* Icon.png */,
-				2A5DEB102F71560A00BFD875 /* Style.css */,
-				2A5DEB122F71560A00BFD875 /* Script.js */,
+				2AD16BFC2F7BDCD0002673D2 /* Main.html */,
+				2AD16BFF2F7BDCD0002673D2 /* Icon.png */,
+				2AD16C012F7BDCD0002673D2 /* Style.css */,
+				2AD16C032F7BDCD0002673D2 /* Script.js */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
 		};
-		2A5DEB242F71560A00BFD875 /* AssetSonar SaaS Discovery & Usage Monitor Extension */ = {
+		2AD16C152F7BDCD1002673D2 /* AssetSonar SaaS Discovery & Usage Monitor Extension */ = {
 			isa = PBXGroup;
 			children = (
-				2A5DEB312F71560B00BFD875 /* Resources */,
-				2A5DEB252F71560A00BFD875 /* SafariWebExtensionHandler.swift */,
-				2A5DEB272F71560A00BFD875 /* Info.plist */,
+				2AD16C222F7BDCD1002673D2 /* Resources */,
+				2AD16C162F7BDCD1002673D2 /* SafariWebExtensionHandler.swift */,
+				2AD16C182F7BDCD1002673D2 /* Info.plist */,
 			);
 			path = "AssetSonar SaaS Discovery & Usage Monitor Extension";
 			sourceTree = "<group>";
 		};
-		2A5DEB312F71560B00BFD875 /* Resources */ = {
+		2AD16C222F7BDCD1002673D2 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				2A5DEB322F71560B00BFD875 /* logo-128.png */,
-				2A5DEB332F71560B00BFD875 /* browser-polyfill.js */,
-				2A5DEB342F71560B00BFD875 /* index.css */,
-				2A5DEB352F71560B00BFD875 /* index2.css */,
-				2A5DEB362F71560B00BFD875 /* public */,
-				2A5DEB372F71560B00BFD875 /* manifest.json */,
-				2A5DEB382F71560B00BFD875 /* schema.json */,
-				2A5DEB392F71560B00BFD875 /* storage.js */,
-				2A5DEB3A2F71560B00BFD875 /* src */,
+				2AD16C232F7BDCD1002673D2 /* logo-128.png */,
+				2AD16C242F7BDCD1002673D2 /* browser-polyfill.js */,
+				2AD16C252F7BDCD1002673D2 /* index.css */,
+				2AD16C262F7BDCD1002673D2 /* index3.css */,
+				2AD16C272F7BDCD1002673D2 /* index2.css */,
+				2AD16C282F7BDCD1002673D2 /* public */,
+				2AD16C292F7BDCD1002673D2 /* manifest.json */,
+				2AD16C2A2F7BDCD1002673D2 /* schema.json */,
+				2AD16C2B2F7BDCD1002673D2 /* storage.js */,
+				2AD16C2C2F7BDCD1002673D2 /* src */,
 			);
 			name = Resources;
 			path = "AssetSonar SaaS Discovery & Usage Monitor Extension";
@@ -136,101 +170,158 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		2A5DEB042F71560A00BFD875 /* AssetSonar SaaS Discovery & Usage Monitor */ = {
+		2AD16BF52F7BDCD0002673D2 /* AssetSonar SaaS Discovery & Usage Monitor */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 2A5DEB2E2F71560A00BFD875 /* Build configuration list for PBXNativeTarget "AssetSonar SaaS Discovery & Usage Monitor" */;
+			buildConfigurationList = 2AD16C1F2F7BDCD1002673D2 /* Build configuration list for PBXNativeTarget "AssetSonar SaaS Discovery & Usage Monitor" */;
 			buildPhases = (
-				2A5DEB012F71560A00BFD875 /* Sources */,
-				2A5DEB022F71560A00BFD875 /* Frameworks */,
-				2A5DEB032F71560A00BFD875 /* Resources */,
-				2A5DEB2D2F71560A00BFD875 /* Embed Foundation Extensions */,
+				2AD16BF22F7BDCD0002673D2 /* Sources */,
+				2AD16BF32F7BDCD0002673D2 /* Frameworks */,
+				2AD16BF42F7BDCD0002673D2 /* Resources */,
+				2AD16C1E2F7BDCD1002673D2 /* Embed Foundation Extensions */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				2AD16C142F7BDCD1002673D2 /* PBXTargetDependency */,
 			);
 			name = "AssetSonar SaaS Discovery & Usage Monitor";
 			packageProductDependencies = (
 			);
 			productName = "AssetSonar SaaS Discovery & Usage Monitor";
-			productReference = 2A5DEB052F71560A00BFD875 /* AssetSonar SaaS Discovery & Usage Monitor.app */;
+			productReference = 2AD16BF62F7BDCD0002673D2 /* AssetSonar SaaS Discovery & Usage Monitor.app */;
 			productType = "com.apple.product-type.application";
+		};
+		2AD16C102F7BDCD1002673D2 /* AssetSonar SaaS Discovery & Usage Monitor Extension */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 2AD16C1B2F7BDCD1002673D2 /* Build configuration list for PBXNativeTarget "AssetSonar SaaS Discovery & Usage Monitor Extension" */;
+			buildPhases = (
+				2AD16C0D2F7BDCD1002673D2 /* Sources */,
+				2AD16C0E2F7BDCD1002673D2 /* Frameworks */,
+				2AD16C0F2F7BDCD1002673D2 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "AssetSonar SaaS Discovery & Usage Monitor Extension";
+			packageProductDependencies = (
+			);
+			productName = "AssetSonar SaaS Discovery & Usage Monitor Extension";
+			productReference = 2AD16C112F7BDCD1002673D2 /* AssetSonar SaaS Discovery & Usage Monitor Extension.appex */;
+			productType = "com.apple.product-type.app-extension";
 		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
-		2A5DEAFD2F71560A00BFD875 /* Project object */ = {
+		2AD16BEE2F7BDCD0002673D2 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
 				BuildIndependentTargetsInParallel = 1;
-				LastSwiftUpdateCheck = 2630;
-				LastUpgradeCheck = 2630;
+				LastSwiftUpdateCheck = 2640;
+				LastUpgradeCheck = 2640;
 				TargetAttributes = {
-					2A5DEB042F71560A00BFD875 = {
-						CreatedOnToolsVersion = 26.3;
+					2AD16BF52F7BDCD0002673D2 = {
+						CreatedOnToolsVersion = 26.4;
+					};
+					2AD16C102F7BDCD1002673D2 = {
+						CreatedOnToolsVersion = 26.4;
 					};
 				};
 			};
-			buildConfigurationList = 2A5DEB002F71560A00BFD875 /* Build configuration list for PBXProject "AssetSonar SaaS Discovery & Usage Monitor" */;
+			buildConfigurationList = 2AD16BF12F7BDCD0002673D2 /* Build configuration list for PBXProject "AssetSonar SaaS Discovery & Usage Monitor" */;
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
 			knownRegions = (
 				en,
 				Base,
 			);
-			mainGroup = 2A5DEAFC2F71560A00BFD875;
+			mainGroup = 2AD16BED2F7BDCD0002673D2;
 			minimizedProjectReferenceProxies = 1;
 			preferredProjectObjectVersion = 77;
-			productRefGroup = 2A5DEB062F71560A00BFD875 /* Products */;
+			productRefGroup = 2AD16BF72F7BDCD0002673D2 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				2A5DEB042F71560A00BFD875 /* AssetSonar SaaS Discovery & Usage Monitor */,
+				2AD16BF52F7BDCD0002673D2 /* AssetSonar SaaS Discovery & Usage Monitor */,
+				2AD16C102F7BDCD1002673D2 /* AssetSonar SaaS Discovery & Usage Monitor Extension */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
-		2A5DEB032F71560A00BFD875 /* Resources */ = {
+		2AD16BF42F7BDCD0002673D2 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				2A5DEB0F2F71560A00BFD875 /* Icon.png in Resources */,
-				2A5DEB182F71560A00BFD875 /* Main.storyboard in Resources */,
-				2A5DEB132F71560A00BFD875 /* Script.js in Resources */,
-				2A5DEB0D2F71560A00BFD875 /* Main.html in Resources */,
-				2A5DEB1A2F71560A00BFD875 /* Assets.xcassets in Resources */,
-				2A5DEB112F71560A00BFD875 /* Style.css in Resources */,
+				2AD16C002F7BDCD0002673D2 /* Icon.png in Resources */,
+				2AD16C092F7BDCD0002673D2 /* Main.storyboard in Resources */,
+				2AD16C042F7BDCD0002673D2 /* Script.js in Resources */,
+				2AD16BFE2F7BDCD0002673D2 /* Main.html in Resources */,
+				2AD16C0B2F7BDCD0002673D2 /* Assets.xcassets in Resources */,
+				2AD16C022F7BDCD0002673D2 /* Style.css in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		2AD16C0F2F7BDCD1002673D2 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				2AD16C312F7BDCD1002673D2 /* index2.css in Resources */,
+				2AD16C332F7BDCD1002673D2 /* manifest.json in Resources */,
+				2AD16C352F7BDCD1002673D2 /* storage.js in Resources */,
+				2AD16C302F7BDCD1002673D2 /* index3.css in Resources */,
+				2AD16C2E2F7BDCD1002673D2 /* browser-polyfill.js in Resources */,
+				2AD16C342F7BDCD1002673D2 /* schema.json in Resources */,
+				2AD16C322F7BDCD1002673D2 /* public in Resources */,
+				2AD16C2D2F7BDCD1002673D2 /* logo-128.png in Resources */,
+				2AD16C2F2F7BDCD1002673D2 /* index.css in Resources */,
+				2AD16C362F7BDCD1002673D2 /* src in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
-		2A5DEB012F71560A00BFD875 /* Sources */ = {
+		2AD16BF22F7BDCD0002673D2 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				2A5DEB152F71560A00BFD875 /* ViewController.swift in Sources */,
-				2A5DEB092F71560A00BFD875 /* AppDelegate.swift in Sources */,
+				2AD16C062F7BDCD0002673D2 /* ViewController.swift in Sources */,
+				2AD16BFA2F7BDCD0002673D2 /* AppDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		2AD16C0D2F7BDCD1002673D2 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				2AD16C172F7BDCD1002673D2 /* SafariWebExtensionHandler.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
+/* Begin PBXTargetDependency section */
+		2AD16C142F7BDCD1002673D2 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 2AD16C102F7BDCD1002673D2 /* AssetSonar SaaS Discovery & Usage Monitor Extension */;
+			targetProxy = 2AD16C132F7BDCD1002673D2 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
 /* Begin PBXVariantGroup section */
-		2A5DEB0B2F71560A00BFD875 /* Main.html */ = {
+		2AD16BFC2F7BDCD0002673D2 /* Main.html */ = {
 			isa = PBXVariantGroup;
 			children = (
-				2A5DEB0C2F71560A00BFD875 /* Base */,
+				2AD16BFD2F7BDCD0002673D2 /* Base */,
 			);
 			name = Main.html;
 			sourceTree = "<group>";
 		};
-		2A5DEB162F71560A00BFD875 /* Main.storyboard */ = {
+		2AD16C072F7BDCD0002673D2 /* Main.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
-				2A5DEB172F71560A00BFD875 /* Base */,
+				2AD16C082F7BDCD0002673D2 /* Base */,
 			);
 			name = Main.storyboard;
 			sourceTree = "<group>";
@@ -238,7 +329,7 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
-		2A5DEB282F71560A00BFD875 /* Debug */ = {
+		2AD16C192F7BDCD1002673D2 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -291,7 +382,7 @@
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
-				MACOSX_DEPLOYMENT_TARGET = 26.2;
+				MACOSX_DEPLOYMENT_TARGET = 26.3;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -301,7 +392,7 @@
 			};
 			name = Debug;
 		};
-		2A5DEB292F71560A00BFD875 /* Release */ = {
+		2AD16C1A2F7BDCD1002673D2 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -348,7 +439,7 @@
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
-				MACOSX_DEPLOYMENT_TARGET = 26.2;
+				MACOSX_DEPLOYMENT_TARGET = 26.3;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = macosx;
@@ -356,7 +447,77 @@
 			};
 			name = Release;
 		};
-		2A5DEB2F2F71560A00BFD875 /* Debug */ = {
+		2AD16C1C2F7BDCD1002673D2 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 77BMJ4N386;
+				ENABLE_APP_SANDBOX = YES;
+				ENABLE_HARDENED_RUNTIME = YES;
+				ENABLE_USER_SELECTED_FILES = readonly;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "AssetSonar SaaS Discovery & Usage Monitor Extension/Info.plist";
+				INFOPLIST_KEY_CFBundleDisplayName = "AssetSonar SaaS Discovery & Usage Monitor Extension";
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@executable_path/../../../../Frameworks",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 10.14;
+				MARKETING_VERSION = 2.2;
+				OTHER_LDFLAGS = (
+					"-framework",
+					SafariServices,
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "io.ezo.AssetSonar-SaaS-Discovery---Usage-Monitor.Extension";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				STRING_CATALOG_GENERATE_SYMBOLS = YES;
+				SWIFT_APPROACHABLE_CONCURRENCY = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
+				SWIFT_VERSION = 5.0;
+			};
+			name = Debug;
+		};
+		2AD16C1D2F7BDCD1002673D2 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 77BMJ4N386;
+				ENABLE_APP_SANDBOX = YES;
+				ENABLE_HARDENED_RUNTIME = YES;
+				ENABLE_USER_SELECTED_FILES = readonly;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "AssetSonar SaaS Discovery & Usage Monitor Extension/Info.plist";
+				INFOPLIST_KEY_CFBundleDisplayName = "AssetSonar SaaS Discovery & Usage Monitor Extension";
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@executable_path/../../../../Frameworks",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 10.14;
+				MARKETING_VERSION = 2.2;
+				OTHER_LDFLAGS = (
+					"-framework",
+					SafariServices,
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "io.ezo.AssetSonar-SaaS-Discovery---Usage-Monitor.Extension";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				STRING_CATALOG_GENERATE_SYMBOLS = YES;
+				SWIFT_APPROACHABLE_CONCURRENCY = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
+				SWIFT_VERSION = 5.0;
+			};
+			name = Release;
+		};
+		2AD16C202F7BDCD1002673D2 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
@@ -364,6 +525,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 77BMJ4N386;
 				ENABLE_APP_SANDBOX = YES;
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_OUTGOING_NETWORK_CONNECTIONS = YES;
@@ -371,6 +533,7 @@
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "AssetSonar SaaS Discovery & Usage Monitor/Info.plist";
 				INFOPLIST_KEY_CFBundleDisplayName = "AssetSonar SaaS Discovery & Usage Monitor";
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.productivity";
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
 				INFOPLIST_KEY_NSMainStoryboardFile = Main;
 				INFOPLIST_KEY_NSPrincipalClass = NSApplication;
@@ -378,7 +541,6 @@
 					"$(inherited)",
 					"@executable_path/../Frameworks",
 				);
-				MACOSX_DEPLOYMENT_TARGET = 15.6;
 				MARKETING_VERSION = 2.2;
 				OTHER_LDFLAGS = (
 					"-framework",
@@ -386,7 +548,7 @@
 					"-framework",
 					WebKit,
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "com.yourCompany.AssetSonar-SaaS-Discovery-and-Usage-Monitor";
+				PRODUCT_BUNDLE_IDENTIFIER = "io.ezo.AssetSonar-SaaS-Discovery---Usage-Monitor";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				REGISTER_APP_GROUPS = YES;
 				STRING_CATALOG_GENERATE_SYMBOLS = YES;
@@ -398,7 +560,7 @@
 			};
 			name = Debug;
 		};
-		2A5DEB302F71560A00BFD875 /* Release */ = {
+		2AD16C212F7BDCD1002673D2 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
@@ -406,6 +568,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 77BMJ4N386;
 				ENABLE_APP_SANDBOX = YES;
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_OUTGOING_NETWORK_CONNECTIONS = YES;
@@ -413,6 +576,7 @@
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "AssetSonar SaaS Discovery & Usage Monitor/Info.plist";
 				INFOPLIST_KEY_CFBundleDisplayName = "AssetSonar SaaS Discovery & Usage Monitor";
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.productivity";
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
 				INFOPLIST_KEY_NSMainStoryboardFile = Main;
 				INFOPLIST_KEY_NSPrincipalClass = NSApplication;
@@ -420,7 +584,6 @@
 					"$(inherited)",
 					"@executable_path/../Frameworks",
 				);
-				MACOSX_DEPLOYMENT_TARGET = 15.6;
 				MARKETING_VERSION = 2.2;
 				OTHER_LDFLAGS = (
 					"-framework",
@@ -428,7 +591,7 @@
 					"-framework",
 					WebKit,
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "com.yourCompany.AssetSonar-SaaS-Discovery-and-Usage-Monitor";
+				PRODUCT_BUNDLE_IDENTIFIER = "io.ezo.AssetSonar-SaaS-Discovery---Usage-Monitor";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				REGISTER_APP_GROUPS = YES;
 				STRING_CATALOG_GENERATE_SYMBOLS = YES;
@@ -443,25 +606,34 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		2A5DEB002F71560A00BFD875 /* Build configuration list for PBXProject "AssetSonar SaaS Discovery & Usage Monitor" */ = {
+		2AD16BF12F7BDCD0002673D2 /* Build configuration list for PBXProject "AssetSonar SaaS Discovery & Usage Monitor" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				2A5DEB282F71560A00BFD875 /* Debug */,
-				2A5DEB292F71560A00BFD875 /* Release */,
+				2AD16C192F7BDCD1002673D2 /* Debug */,
+				2AD16C1A2F7BDCD1002673D2 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		2A5DEB2E2F71560A00BFD875 /* Build configuration list for PBXNativeTarget "AssetSonar SaaS Discovery & Usage Monitor" */ = {
+		2AD16C1B2F7BDCD1002673D2 /* Build configuration list for PBXNativeTarget "AssetSonar SaaS Discovery & Usage Monitor Extension" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				2A5DEB2F2F71560A00BFD875 /* Debug */,
-				2A5DEB302F71560A00BFD875 /* Release */,
+				2AD16C1C2F7BDCD1002673D2 /* Debug */,
+				2AD16C1D2F7BDCD1002673D2 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		2AD16C1F2F7BDCD1002673D2 /* Build configuration list for PBXNativeTarget "AssetSonar SaaS Discovery & Usage Monitor" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				2AD16C202F7BDCD1002673D2 /* Debug */,
+				2AD16C212F7BDCD1002673D2 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
-	rootObject = 2A5DEAFD2F71560A00BFD875 /* Project object */;
+	rootObject = 2AD16BEE2F7BDCD0002673D2 /* Project object */;
 }
