@@ -4,7 +4,7 @@ export type ManagedPolicyKey = 'CLOUD_SYNC' | 'SUBDOMAIN' | 'REGION' | 'TAG'
 type ManagedPolicyMap = Partial<Record<ManagedPolicyKey, unknown>>
 
 const SAFARI_NATIVE_HOST =
-  'com.yourCompany.AssetSonar-SaaS-Discovery-and-Usage-Monitor'
+  'io.ezo.AssetSonar-SaaS-Discovery---Usage-Monitor.Extension'
 
 const getManagedFromSafariNative = async (
   keys: ManagedPolicyKey[],

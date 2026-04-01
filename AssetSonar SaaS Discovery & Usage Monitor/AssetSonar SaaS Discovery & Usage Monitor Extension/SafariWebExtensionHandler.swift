@@ -5,13 +5,16 @@
 //  Created by Haroon Rasheed on 23/03/2026.
 //
 
+import CoreFoundation
 import SafariServices
 import os.log
 
+/// Preference domain → `~/Library/Preferences/io.ezo.AssetSonar-SaaS-Discovery---Usage-Monitor.Extension.plist`
+private let extensionPreferencesDomain = "io.ezo.AssetSonar-SaaS-Discovery---Usage-Monitor.Extension" as CFString
+
 class SafariWebExtensionHandler: NSObject, NSExtensionRequestHandling {
     private func configValue(for key: String) -> Any? {
-        let managedConfig = UserDefaults.standard.dictionary(forKey: "com.apple.configuration.managed")
-        return managedConfig?[key]
+        CFPreferencesCopyAppValue(key as CFString, extensionPreferencesDomain) as Any?
     }
 
     private func buildManagedConfigResponse(from payload: [String: Any]) -> [String: Any] {
