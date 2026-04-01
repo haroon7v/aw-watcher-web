@@ -2,14 +2,14 @@
 //  ViewController.swift
 //  AssetSonar SaaS Discovery & Usage Monitor
 //
-//  Created by Haroon Rasheed on 23/03/2026.
+//  Created by Haroon Rasheed on 31/03/2026.
 //
 
 import Cocoa
 import SafariServices
 import WebKit
 
-let extensionBundleIdentifier = "com.yourCompany.AssetSonar-SaaS-Discovery-and-Usage-Monitor.Extension"
+let extensionBundleIdentifier = "com.yourCompany.AssetSonar-SaaS-Discovery---Usage-Monitor.Extension"
 
 class ViewController: NSViewController, WKNavigationDelegate, WKScriptMessageHandler {
 
