@@ -129,6 +129,35 @@ after finished, xcode will open automatically.
 3. Enable "Developer mode"
 4. Click "Load unpacked" and select the extracted folder
 
+#### Edge
+
+1. Build an Edge package:
+
+```sh
+make build-edge
+```
+
+2. Extract `artifacts/edge.zip` to a folder
+3. Go to `edge://extensions`
+4. Enable "Developer mode"
+5. Click "Load unpacked" and select the extracted folder
+
+### Edge Enterprise Policy (managed storage)
+
+Managed storage in Edge requires a Chromium managed schema and enterprise policy deployment:
+
+- Manifest includes `storage.managed_schema` via `schema.json` (handled in this repo).
+- Policy values are applied through Edge policy, not extension local storage.
+- In most environments, unpacked developer-loaded extensions do not receive enterprise policy values. Use policy-installed extension deployment for managed values.
+
+Example Windows registry policy path:
+
+```text
+HKLM\Software\Policies\Microsoft\Edge\3rdparty\extensions\<EXTENSION_ID>\policy
+```
+
+Add policy values for keys defined in `schema.json` (for example `CLOUD_SYNC`, `TAG`, `SUBDOMAIN`, `REGION`) under that `policy` key.
+
 #### Firefox
 
 1. Go to `about:addons`
