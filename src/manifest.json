@@ -4,7 +4,7 @@
     "{{firefox}}.manifest_version": 3,
     "{{safari}}.manifest_version": 3,
 
-    "name": "AssetSonar Browser Activity Monitor",
+    "name": "AssetSonar Activity Monitor",
     "description": "Track & Control Browser Activity",
     "version": "2.2.0",
     "icons": {

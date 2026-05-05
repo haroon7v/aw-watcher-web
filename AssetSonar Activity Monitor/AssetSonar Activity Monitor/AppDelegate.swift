@@ -1,6 +1,6 @@
 //
 //  AppDelegate.swift
-//  AssetSonar Browser Activity Monitor
+//  AssetSonar Activity Monitor
 //
 //  Created by Haroon Rasheed on 05/05/2026.
 //

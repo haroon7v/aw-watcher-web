@@ -1,6 +1,6 @@
 //
 //  ViewController.swift
-//  AssetSonar Browser Activity Monitor
+//  AssetSonar Activity Monitor
 //
 //  Created by Haroon Rasheed on 05/05/2026.
 //
@@ -9,7 +9,7 @@ import Cocoa
 import SafariServices
 import WebKit
 
-let extensionBundleIdentifier = "io.ezo.AssetSonar-Browser-Activity-Monitor.Extension"
+let extensionBundleIdentifier = "io.ezo.AssetSonar-Activity-Monitor.Extension"
 
 class ViewController: NSViewController, WKNavigationDelegate, WKScriptMessageHandler {
 

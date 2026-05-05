@@ -1,6 +1,6 @@
 //
 //  SafariWebExtensionHandler.swift
-//  AssetSonar Browser Activity Monitor Extension
+//  AssetSonar Activity Monitor Extension
 //
 //  Created by Haroon Rasheed on 05/05/2026.
 //
@@ -9,7 +9,7 @@ import CoreFoundation
 import SafariServices
 import os.log
 
-private let extensionPreferencesDomain = "io.ezo.AssetSonar-Browser-Activity-Monitor.Extension" as CFString
+private let extensionPreferencesDomain = "io.ezo.AssetSonar-Activity-Monitor.Extension" as CFString
 
 class SafariWebExtensionHandler: NSObject, NSExtensionRequestHandling {
     private func configValue(for key: String) -> Any? {
