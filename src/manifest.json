@@ -92,6 +92,7 @@
     "{{safari}}.permissions": [
         "tabs",
         "alarms",
+        "notifications",
         "activeTab",
         "storage",
         "declarativeNetRequest",

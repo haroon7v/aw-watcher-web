@@ -120,6 +120,12 @@ export async function sendHeartbeat(
       setSyncStatus(true)
     })
     .catch((err) => {
+      if (syncStatus.success) {
+        emitNotification(
+          'Unable to send event to server',
+          'Please ensure that ActivityWatch is running',
+        )
+      }
       setSyncStatus(false)
       return logHttpError(err)
     })
