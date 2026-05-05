@@ -1,16 +1,15 @@
 //
 //  SafariWebExtensionHandler.swift
-//  AssetSonar SaaS Discovery & Usage Monitor Extension
+//  AssetSonar Browser Activity Monitor Extension
 //
-//  Created by Haroon Rasheed on 23/03/2026.
+//  Created by Haroon Rasheed on 05/05/2026.
 //
 
 import CoreFoundation
 import SafariServices
 import os.log
 
-/// Preference domain → `~/Library/Preferences/io.ezo.AssetSonar-SaaS-Discovery---Usage-Monitor.Extension.plist`
-private let extensionPreferencesDomain = "io.ezo.AssetSonar-SaaS-Discovery---Usage-Monitor.Extension" as CFString
+private let extensionPreferencesDomain = "io.ezo.AssetSonar-Browser-Activity-Monitor.Extension" as CFString
 
 class SafariWebExtensionHandler: NSObject, NSExtensionRequestHandling {
     private func configValue(for key: String) -> Any? {

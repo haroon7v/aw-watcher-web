@@ -1,8 +1,8 @@
 //
 //  AppDelegate.swift
-//  AssetSonar SaaS Discovery & Usage Monitor
+//  AssetSonar Browser Activity Monitor
 //
-//  Created by Haroon Rasheed on 23/03/2026.
+//  Created by Haroon Rasheed on 05/05/2026.
 //
 
 import Cocoa

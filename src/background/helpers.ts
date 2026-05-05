@@ -35,12 +35,18 @@ export const getActiveWindowTab = async (): Promise<
 }
 
 export function emitNotification(title: string, message: string) {
-  browser.notifications.create({
-    type: 'basic',
-    iconUrl: browser.runtime.getURL('logo-128.png'),
-    title,
-    message,
-  })
+  if (import.meta.env.VITE_TARGET_BROWSER === 'safari') return
+
+  try {
+    browser.notifications.create({
+      type: 'basic',
+      iconUrl: browser.runtime.getURL('logo-128.png'),
+      title,
+      message,
+    })
+  } catch (error) {
+    console.debug('Notifications not available:', error)
+  }
 }
 
 export const getBrowser = async (): Promise<string> => {
