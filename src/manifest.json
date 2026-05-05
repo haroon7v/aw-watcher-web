@@ -38,6 +38,7 @@
     "{{firefox}}.permissions": [
         "tabs",
         "alarms",
+        "notifications",
         "activeTab",
         "storage",
         "declarativeNetRequest",
@@ -53,6 +54,7 @@
     "{{chrome}}.permissions": [
         "tabs",
         "alarms",
+        "notifications",
         "activeTab",
         "storage",
         "declarativeNetRequest",
