@@ -9,7 +9,7 @@ import Cocoa
 import SafariServices
 import WebKit
 
-let extensionBundleIdentifier = "com.yourCompany.AssetSonar-Browser-Activity-Monitor.Extension"
+let extensionBundleIdentifier = "io.ezo.AssetSonar-Browser-Activity-Monitor.Extension"
 
 class ViewController: NSViewController, WKNavigationDelegate, WKScriptMessageHandler {
 
