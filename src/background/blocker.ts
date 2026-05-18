@@ -1,6 +1,7 @@
 import browser from 'webextension-polyfill'
 import config from '../config'
 import { assetsonarServerUrl, getBrowserNameForEvent } from './helpers'
+import { getManagedPolicies } from '../managed-policy'
 
 
 export const blockedDomainsAlarmListener = () => async (alarm: browser.Alarms.Alarm) => {
@@ -40,6 +41,10 @@ export const updateDynamicRules = async (domains: Array<{ id: string, domain: st
 }
 
 function buildUrlFilter(domain: string, matchType: string): string {
+  const browserTarget = import.meta.env.VITE_TARGET_BROWSER
+
+  if (browserTarget === 'safari') { return domain.trim() }
+
   switch (matchType) {
     case 'starts_with':
       return `^(https?://)?(www\\.)?${domain}(\\.[^/?#]+)*([/?#]|$)`
@@ -51,22 +56,15 @@ function buildUrlFilter(domain: string, matchType: string): string {
 }
 
 const fetchBlockedDomains = async () => {
-  let managed: { SUBDOMAIN?: string; TAG?: string }
-  try {
-    managed = await browser.storage.managed.get(['SUBDOMAIN', 'TAG'])
-  } catch (error) {
-    console.debug('Managed storage not available:', error)
-    throw new Error('Managed storage not available')
-  }
-  
-  const subdomain = managed.SUBDOMAIN
-  const itamAccessToken = managed.TAG
-  if (!subdomain || !itamAccessToken) {
-    throw new Error('SUBDOMAIN or TAG not found in managed storage')
+  const managed = await getManagedPolicies(['SUBDOMAIN', 'TAG'])
+  const subdomain = managed.SUBDOMAIN as string | undefined
+  const tag = managed.TAG as string | undefined
+  if (!subdomain || !tag) {
+    throw new Error('SUBDOMAIN or TAG not found in managed config')
   }
 
   const browserName = await getBrowserNameForEvent()
-  const url = `${assetsonarServerUrl(subdomain)}/api/api_integration/blocked_web_domains.api?token=${encodeURIComponent(itamAccessToken)}&browser=${encodeURIComponent(browserName)}`
+  const url = `${assetsonarServerUrl(subdomain)}/api/api_integration/blocked_web_domains.api?token=${encodeURIComponent(tag)}&browser=${encodeURIComponent(browserName)}`
   const response = await fetch(url)
   if (!response.ok) {
     throw new Error(`Failed to fetch blocked domains: ${response.statusText}`)
