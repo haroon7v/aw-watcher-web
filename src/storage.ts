@@ -1,5 +1,6 @@
 import { IEvent } from 'aw-client'
 import browser from 'webextension-polyfill'
+import { getManagedPolicyValue } from './managed-policy'
 
 function watchKey<T>(key: string, cb: (value: T) => void | Promise<void>) {
   const listener = (
@@ -102,6 +103,12 @@ export const getHostname = (): Promise<Hostname | undefined> =>
 export const setHostname = (hostname: Hostname) =>
   browser.storage.local.set({ hostname })
 
+const toBoolean = (value: unknown): boolean => {
+  if (typeof value === 'boolean') return value
+  if (typeof value === 'string') return value.toLowerCase() === 'true'
+  return false
+}
+
 type Domain = { id: string, domain: string, matchType: string }
 export const getDomains = (): Promise<Domain[] | undefined> =>
   browser.storage.local
@@ -125,47 +132,25 @@ export const getCloudSyncPolicy = async (): Promise<boolean> => {
   if (navigator.userAgent.includes('Firefox')) {
     return false
   }
-  
-  try {
-    // Try to read from managed storage (policy)
-    const result = await browser.storage.managed.get('CLOUD_SYNC')
-    return Boolean(result.CLOUD_SYNC)
-  } catch (error) {
-    // If managed storage is not available, default to false
-    console.debug('Managed storage not available, defaulting CLOUD_SYNC to false:', error)
-    return false
-  }
+
+  const value = await getManagedPolicyValue('CLOUD_SYNC')
+  return toBoolean(value)
 }
 
 // Chrome extension policies for authentication and cloud configuration
 export const getTagPolicy = async (): Promise<string> => {
-  try {
-    const result = await browser.storage.managed.get('TAG')
-    return (result.TAG as string) || ''
-  } catch (error) {
-    console.debug('Managed storage not available, defaulting TAG to empty string:', error)
-    return ''
-  }
+  const value = await getManagedPolicyValue('TAG')
+  return typeof value === 'string' ? value : ''
 }
 
 export const getSubdomainPolicy = async (): Promise<string> => {
-  try {
-    const result = await browser.storage.managed.get('SUBDOMAIN')
-    return (result.SUBDOMAIN as string) || ''
-  } catch (error) {
-    console.debug('Managed storage not available, defaulting SUBDOMAIN to empty string:', error)
-    return ''
-  }
+  const value = await getManagedPolicyValue('SUBDOMAIN')
+  return typeof value === 'string' ? value : ''
 }
 
 export const getRegionPolicy = async (): Promise<string> => {
-  try {
-    const result = await browser.storage.managed.get('REGION')
-    return (result.REGION as string) || ''
-  } catch (error) {
-    console.debug('Managed storage not available, defaulting REGION to empty string:', error)
-    return ''
-  }
+  const value = await getManagedPolicyValue('REGION')
+  return typeof value === 'string' ? value : ''
 }
 
 // Storage functions for asHeartbeats array
